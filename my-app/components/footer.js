@@ -1,54 +1,48 @@
 import React from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 
 function Footer() {
   return (
-   <footer className="bg-green-900 text-white py-10">
-   <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-     {/* Logo & Address */}
-     
+    <footer className=''>
+      <div className='bg-emerald-950 text-white py-10 min-h-[25vh]'>
 
-     {/* Navigation Links */}
-     <div>
-       <h3 className="text-lg font-semibold">Navigate</h3>
-       <ul className="mt-2 space-y-1">
-         {["About Us", "Our Story", "Our Harvest", "Benefits", "Reviews", "Contact Us", "Privacy Policy"].map(
-           (item) => (
-             <li key={item}>
-               <a href="#" className="hover:text-gray-300">{item}</a>
-             </li>
-           )
-         )}
-       </ul>
-     </div>
+        <div className='flex justify-center gap-60'>
 
-     {/* Utility Links */}
-     <div>
-       <h3 className="text-lg font-semibold">Utility</h3>
-       <ul className="mt-2 space-y-1">
-         {["Get Started", "Style Guide", "License", "Changelog"].map((item) => (
-           <li key={item}>
-             <a href="#" className="hover:text-gray-300">{item}</a>
-           </li>
-         ))}
-       </ul>
-     </div>
-   </div>
+          {/* Navigation Links */}
+          <div>
+            <h3 className='text-xl font-semibold'>Navigate</h3>
+            <ul className='flex flex-col gap-4 my-4 text-sm'>
+              {['About Us', 'Our Story', 'Our Harvest', 'Benefits', 'Reviews', 'Contact Us', 'Privacy Policy'].map(
+                (item) => (
+                  <li key={item}>
+                    <Link href='#' className='hover:text-white text-gray-400'>{item}</Link>
+                  </li>
+                )
+              )}
+            </ul>
+          </div>
 
-   {/* Bottom Section */}
-   <div className="max-w-7xl mx-auto px-6 mt-10 flex flex-col md:flex-row justify-between items-center border-t border-gray-700 pt-4">
-     
+          {/* Utility Links */}
+          <div>
+            <h3 className='text-xl font-semibold'>Utility</h3>
+            <ul className='flex flex-col gap-4 my-4 text-sm'>
+              {['Get Started', 'Style Guide', 'License', 'Changelog'].map((item) => (
+                <li key={item}>
+                  <a href='#' className='hover:text-white text-gray-400'>{item}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-     {/* Social Media Icons */}
-     <div className="flex space-x-4">
-       {["facebook", "twitter", "instagram"].map((platform) => (
-         <a key={platform} href="#" className="text-white hover:text-gray-400">
-           <i className={`fab fa-${platform} text-xl`} />
-         </a>
-       ))}
-     </div>
-   </div>
+          <Image src='/Group1.png' width='400' height='400' alt='Crop' />
 
-   </footer>
+        </div>
+
+        <p className='max-w-fit mx-auto mt-10 text-sm'>Copyright 	&#169; Crop Guide. All rights reserved.</p>
+
+      </div>
+    </footer>
   )
 }
 

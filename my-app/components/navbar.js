@@ -1,59 +1,58 @@
 
-"use client";
-import React, { useState } from 'react';
-import Link from "next/link";
+import React from 'react'
+import Link from 'next/link'
 
 
 
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <nav className="bg-green-950 text-white p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <button
-          className="md:hidden text-white"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          &#9776;
-        </button>
-        <ul
-          className={`md:flex space-x-6 text-lg ${isOpen ? 'block' : 'hidden'} md:block`}
-        >
+    <nav className=''>
+
+      <div className='bg-emerald-950 text-white fixed top-4 right-16 z-10 flex justify-between items-center h-[10vh] w-[90vw] px-10 rounded-full'>
+
+        <h2 className='text-lg font-semibold'>Crop Guide</h2>
+
+        <ul className='text-lg flex gap-10'>
           <li>
-            <Link href="/about">
+            <Link href='/about'>
               About Us
             </Link>
           </li>
+
           <li>
-            <Link href="/story">
+            <Link href='/story'>
               Our Story
             </Link>
           </li>
+
           <li>
-            <Link href="/harvest">
+            <Link href='/harvest'>
               Our Harvest
             </Link>
           </li>
+
           <li>
-            <Link href="/benefits">
+            <Link href='/benefits'>
               Benefits
             </Link>
           </li>
+
           <li>
-            <Link href="/reviews">
+            <Link href='/reviews'>
               Reviews
             </Link>
           </li>
+
           <li>
-            <Link href="/contact">
+            <Link href='/contact'>
               Contact Us
             </Link>
           </li>
         </ul>
-        
+
       </div>
+
     </nav>
   );
 }

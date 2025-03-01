@@ -8,7 +8,7 @@ export default function Home() {
 
         <div className="flex flex-col justify-center gap-5 min-w-[50vw] pl-20">
           <p className="text-lg">TAKE FARMING TO A NEXT LEVEL</p>
-          <h2 className="text-8xl">Crop Guide</h2>
+          <h1 className="text-8xl">Crop Guide</h1>
 
           <p className="text-xl">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis omnis libero dignissimos totam voluptates itaque perferendis! Qui blanditiis saepe dolorem. Explicabo necessitatibus vel qui atque fuga ut laudantium eius ea?</p>
 
@@ -47,26 +47,26 @@ export default function Home() {
 
         <h2 className="text-5xl">Showing the Seeds of an Organic Revolution</h2>
 
-        <div className="flex gap-10">
+        <div className="flex gap-10 text-center">
 
           <div className="flex flex-col items-center w-[25vw] gap-5">
             <Image src="/after.jpg" className="border-2 border-black rounded-3xl" width="500" height="500" alt="After" />
             <h3 className="text-3xl">Growing Together: Evolution and Expansion</h3>
-            <p className="text-lg">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id quisquam repellendus accusamus eum qui suscipit error possimus quos?</p>
+            <p className="text-lg">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id quisquam repellendus accusamus eum qui suscipit error possimus?</p>
             <button className="btn bg-lime-500 w-40">Predict</button>
           </div>
           
           <div className="flex flex-col items-center w-[25vw] gap-5">
             <Image src="/before.jpg" className="border-2 border-black rounded-3xl" width="500" height="500" alt="Before" />
             <h3 className="text-3xl">Rooted in Tradition: The Early Years of Our Farm</h3>
-            <p className="text-lg">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur labore, aperiam perferendis eius nobis, adipisicing elit rkop leokns.</p>
+            <p className="text-lg">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur labore, aperiam perferendis eius nobis, adipisicing elit rkop.</p>
             <button className="btn bg-orange-500 w-40">Predict</button>
           </div>
 
           <div className="flex flex-col items-center w-[25vw] gap-5">
             <Image src="/after.jpg" className="border-2 border-black rounded-3xl" width="500" height="500" alt="After" />
             <h3 className="text-3xl">Growing Together: Evolution and Expansion</h3>
-            <p className="text-lg">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id quisquam repellendus accusamus eum qui suscipit error possimus quos?</p>
+            <p className="text-lg">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id quisquam repellendus accusamus eum qui suscipit error possimus?</p>
             <button className="btn bg-lime-500 w-40">Predict</button>
           </div>
 
