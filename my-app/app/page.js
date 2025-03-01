@@ -2,100 +2,77 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="">
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <div className="bg-amber-100 grid grid-flow-col min-h-screen max-w-[100vw]">
+
+        <div className="flex flex-col justify-center gap-5 min-w-[50vw] pl-20">
+          <p className="text-lg">TAKE FARMING TO A NEXT LEVEL</p>
+          <h1 className="text-8xl">Crop Guide</h1>
+
+          <p className="text-xl">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis omnis libero dignissimos totam voluptates itaque perferendis! Qui blanditiis saepe dolorem. Explicabo necessitatibus vel qui atque fuga ut laudantium eius ea?</p>
+
+          <div className="flex gap-10">
+            <button className="border border-black rounded-xl bg-lime-500 px-4 py-2 hover:-translate-y-1 hover:shadow-xl w-40">Recommendation</button>
+            <button className="btn bg-orange-500 w-40">Predict</button>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <div className="flex justify-center items-center min-w-[50vw] pr-20">
+          <Image className="" src="/vegetable9.png" width="400" height="400" alt="Vegetable" />
+          <Image className="absolute bottom-44 right-16" src="/vegetable8.png" width="350" height="350" alt="Vegetable" />
+          <Image className="absolute bottom-36 right-36" src="/vegetable11.png" width="125" height="125" alt="Vegetable" />
+          <Image className="absolute bottom-36 right-96" src="/vegetable4.png" width="200" height="200" alt="Vegetable" />
+
+
+        </div>
+
+      </div>
+
+      <div className="grid grid-flow-col bg-lime-300 min-h-screen max-w-[100vw]">
+        <div className="min-w-[50vw] flex justify-center items-center">
+          <Image src="/none" className="border border-black" width="500" height="500" alt="Recomendation" />
+
+        </div>
+
+        <div className="flex flex-col justify-center gap-5 pr-20 min-w-[50vw]">
+          <p className="text-lg">ABOUT US</p>
+          <h2 className="text-8xl">Meet the Minds</h2>
+          <p className="text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum sed laboriosam facere, non delectus ullam placeat dolorum debitis eveniet sint atque officia. Doloremque dolore magnam.</p>
+        </div>
+      </div>
+
+      <div className="bg-amber-100 min-h-screen max-w-[100vw] flex flex-col justify-center items-center gap-5">
+        <p className="text-lg">OUR STORY</p>
+
+        <h2 className="text-5xl">Showing the Seeds of an Organic Revolution</h2>
+
+        <div className="flex gap-10 text-center">
+
+          <div className="flex flex-col items-center w-[25vw] gap-5">
+            <Image src="/after.jpg" className="border-2 border-black rounded-3xl" width="500" height="500" alt="After" />
+            <h3 className="text-3xl">Growing Together: Evolution and Expansion</h3>
+            <p className="text-lg">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id quisquam repellendus accusamus eum qui suscipit error possimus?</p>
+            <button className="btn bg-lime-500 w-40">Predict</button>
+          </div>
+          
+          <div className="flex flex-col items-center w-[25vw] gap-5">
+            <Image src="/before.jpg" className="border-2 border-black rounded-3xl" width="500" height="500" alt="Before" />
+            <h3 className="text-3xl">Rooted in Tradition: The Early Years of Our Farm</h3>
+            <p className="text-lg">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur labore, aperiam perferendis eius nobis, adipisicing elit rkop.</p>
+            <button className="btn bg-orange-500 w-40">Predict</button>
+          </div>
+
+          <div className="flex flex-col items-center w-[25vw] gap-5">
+            <Image src="/after.jpg" className="border-2 border-black rounded-3xl" width="500" height="500" alt="After" />
+            <h3 className="text-3xl">Growing Together: Evolution and Expansion</h3>
+            <p className="text-lg">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id quisquam repellendus accusamus eum qui suscipit error possimus?</p>
+            <button className="btn bg-lime-500 w-40">Predict</button>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
   );
 }
