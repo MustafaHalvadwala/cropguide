@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 function Page() {
   return (
-    <div>
+    <>
       <div className='bg-amber-100 grid grid-flow-col max-w-[100vw] min-h-screen'>
 
         <div className='flex justify-center items-center min-w-[50vw]'>
@@ -108,7 +108,7 @@ function Page() {
       </div>
 
       <div className='bg-amber-100 grid grid-flow-col max-w-[100vw] min-h-screen'>
-        <div className="bg-[#FDF8EC] py-16 px-4 sm:px-10">
+        <div className="py-16 px-4 sm:px-10">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
             {/* Card Section */}
             <div className=" p-6 sm:p-10 rounded-xl shadow-lg border-4 border-grey-950">
@@ -140,7 +140,7 @@ function Page() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
