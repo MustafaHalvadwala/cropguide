@@ -13,10 +13,10 @@ function Footer() {
           <div>
             <h3 className='text-xl font-semibold'>Navigate</h3>
             <ul className='flex flex-col gap-4 my-4 text-sm'>
-              {['About Us', 'Our Story', 'Our Harvest', 'Benefits', 'Reviews', 'Contact Us', 'Privacy Policy'].map(
+              {['Home', 'Our Purpose', 'Our Features', 'Benefits', 'Whether'].map(
                 (item) => (
                   <li key={item}>
-                    <Link href='#' className='hover:text-white text-gray-400'>{item}</Link>
+                    <Link href='#' className='hover:text-white text-gray-500'>{item}</Link>
                   </li>
                 )
               )}
@@ -27,19 +27,19 @@ function Footer() {
           <div>
             <h3 className='text-xl font-semibold'>Utility</h3>
             <ul className='flex flex-col gap-4 my-4 text-sm'>
-              {['Get Started', 'Style Guide', 'License', 'Changelog'].map((item) => (
+              {['Get Started', 'Style Guide', 'License', 'Changelog', 'Privacy Policy'].map((item) => (
                 <li key={item}>
-                  <a href='#' className='hover:text-white text-gray-400'>{item}</a>
+                  <a href='#' className='hover:text-white text-gray-500'>{item}</a>
                 </li>
               ))}
             </ul>
           </div>
 
-          <Image src='/Group1.png' width='400' height='400' alt='Crop' />
+          <Image src='/group1.png' width='400' height='400' alt='Crop' />
 
         </div>
 
-        <p className='max-w-fit mx-auto mt-10 text-sm'>Copyright 	&#169; Crop Guide. All rights reserved.</p>
+        <p className='w-fit mx-auto mt-10 text-sm'>Copyright 	&#169; Crop Guide. All rights reserved.</p>
 
       </div>
     </footer>
