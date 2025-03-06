@@ -10,7 +10,7 @@ function Navbar() {
     <nav className=''>
 
       <div className='flex justify-center'>
-        <div className='bg-emerald-950 text-white fixed translate-y-5 z-10 flex justify-between items-center h-[10vh] w-[90vw] px-10 rounded-full'>
+        <div className='bg-emerald-950 text-white fixed translate-y-5 z-10 flex justify-between items-center h-20 w-[90vw] px-10 rounded-full'>
 
           <h2 className='text-lg font-semibold'>Crop Guide</h2>
 

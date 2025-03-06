@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <main className="">
 
-      <div className="bg-amber-100 grid grid-flow-col min-h-screen max-w-[100vw]" id="home">
+      <div className="bg-amber-100 grid grid-flow-col min-h-screen max-w-[100vw] py-20" id="home">
 
         <div data-aos="fade-right" className="flex flex-col justify-center gap-5 min-w-[50vw] pl-20 text-balance">
           <p className="text-sm uppercase">Take Farming To The Next Level</p>
@@ -42,7 +42,7 @@ export default function Home() {
 
       </div>
 
-      <div className="grid grid-flow-col bg-lime-300 min-h-screen max-w-[100vw]" id="purpose">
+      <div className="grid grid-flow-col bg-lime-300 min-h-screen max-w-[100vw] py-20" id="purpose">
         <div data-aos="fade-right" className="min-w-[50vw] flex justify-center items-center">
           <Image src="/farmer.jpg" className="border border-black rounded-3xl" width="500" height="500" alt="A farmer standing in a green field using a web app on his smartphone." />
 
@@ -57,16 +57,16 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-amber-100 min-h-screen max-w-[100vw] flex flex-col justify-center items-center text-center text-balance gap-3" id="features">
+      <div className="bg-amber-100 min-h-screen max-w-[100vw] flex flex-col justify-center items-center text-center text-balance gap-3 py-20" id="features">
         <p className="text-sm uppercase">Use AI to Empower Agriculture with Insights, Predictions, and Smarter Decisions</p>
 
-        <h2 className="text-5xl font-bold z-10">Our Features: Revolutionizing Farming with Smart Technology</h2>
+        <h2 className="text-5xl font-bold">Our Features: Revolutionizing Farming with Smart Technology</h2>
 
-        <div data-aos="fade-up" className="flex gap-10 mt-10">
+        <div data-aos="fade-up" className="flex px-20 mt-10 gap-10">
 
-          <Image src="/group4.png" className="absolute -translate-x-32 -translate-y-16 -z-10" width="175" height="175" alt="Vegetables" />
+          <Image src="/group4.png" className="absolute -translate-x-24 -translate-y-16 -z-10" width="150" height="150" alt="Vegetables" />
 
-          <div className="flex flex-col items-center w-[25vw] gap-2">
+          <div className="flex flex-col items-center justify-center gap-2">
             <Image src="/recommendation.jpg" className="border-2 border-black rounded-3xl" width="400" height="400" alt="A close-up of rich, fertile soil with AI-based crop suggestions appearing as holographic projections." />
             <h3 className="text-lg font-semibold">🌾 Grow the Right Crop</h3>
             <p className="text-base">Our AI analyzes soil and weather to help you grow the most sustainable crops for your land to cultivate.</p>
@@ -75,7 +75,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="flex flex-col items-center w-[25vw] gap-2">
+          <div className="flex flex-col items-center justify-center gap-2">
             <Image src="/prediction.jpg" className="border-2 border-black rounded-3xl" width="400" height="400" alt="A simple graph predicting crop prices displayed on a tablet or holographic screen." />
             <h3 className="text-lg font-semibold">💰 Maximize Your Profit</h3>
             <p className="text-base">Get AI-powered forecasts on crop prices so you can sell at the right amount and maximize your earnings.</p>
@@ -84,24 +84,24 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="flex flex-col items-center w-[25vw] gap-2">
+          <div className="flex flex-col items-center justify-center gap-2">
             <Image src="/insight.jpg" className="border-2 border-black rounded-3xl" width="400" height="400" alt="A magnified view of soil structure revealing its detailed composition. The image shows cross-sections of soil layers with visible roots, organic matter, and moisture." />
-            <h3 className="text-lg font-semibold z-10">📢 Stay Ahead with Smart Insights</h3>
-            <p className="text-base">Understand soil conditions, climate impact, and best farming practices to boost your yield.</p>
+            <h3 className="text-lg font-semibold">📢 Stay Ahead with Smart Insights</h3>
+            <p className="text-base">Understand soil conditions, climate impact, and best farming practices to boost your yield  and sustainability.</p>
             <Link href="crop">
               <button className="btn bg-lime-500 w-60 mt-5">Explore Insights</button>
             </Link>
           </div>
 
-          <Image src="/group3.png" className="absolute translate-x-[71rem] translate-y-[11rem] -z-10" width="225" height="225" alt="Vegetables" />
+          {/* <Image src="/group3.png" className="absolute" width="225" height="225" alt="Vegetables" /> */}
 
         </div>
       </div>
 
-      <div className="bg-orange-300 min-h-screen max-w-[100vw]" id="benefits">
+      <div className="bg-orange-300 min-h-screen max-w-[100vw] py-20" id="benefits">
       </div>
 
-      <div className="bg-amber-100 min-h-screen max-w-[100vw]" id="whether">
+      <div className="bg-amber-100 min-h-screen max-w-[100vw] py-20" id="whether">
       </div>
 
     </main>
