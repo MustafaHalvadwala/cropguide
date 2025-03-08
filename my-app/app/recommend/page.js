@@ -18,6 +18,8 @@ function Recommendation() {
 
     const [crop, setCrop] = useState("")
 
+    const [loading, setLoading] = useState(false)
+
     const handleChange = (e) => {
         const { name, value, type } = e.target
 
@@ -30,9 +32,11 @@ function Recommendation() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         console.log(formData)
+        setLoading(true)
 
-        const myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
+
+        const myHeaders = new Headers()
+        myHeaders.append("Content-Type", "application/json")
 
         const raw = JSON.stringify({
             "nitrogen": formData.nitrogen,
@@ -49,7 +53,7 @@ function Recommendation() {
             headers: myHeaders,
             body: raw,
             redirect: "follow"
-        };
+        }
 
         fetch("/api/recommendation", requestOptions)
             .then((response) => response.json())
@@ -57,9 +61,10 @@ function Recommendation() {
 
                 console.log(result.message)
                 setCrop(result.message)
+                setLoading(false)
 
             })
-            .catch((error) => console.error(error));
+            .catch((error) => console.error(error))
     }
 
     const statesWithCities = {
@@ -79,7 +84,7 @@ function Recommendation() {
 
                 </div>
 
-                <form action='' className='flex flex-col gap-5 min-w-[60vw] justify-center p-20 mt-10' onSubmit={handleSubmit}>
+                <form action='' className='flex flex-col gap-5 min-w-[60vw] justify-center p-20 mt-10'>
                     <div className='flex flex-col'>
                         <label htmlFor='nitrogen' className='text-xl font-semibold'>Nitrogen:</label>
                         <input type='number' name='nitrogen' placeholder='Enter ratio of Nitrogen content in soil' className='py-2 px-4 rounded-lg' value={formData.nitrogen} onChange={handleChange} />
@@ -126,7 +131,9 @@ function Recommendation() {
                         </div>
                     </div>
 
-                    <input type='submit' value='Get Recommendation' className='bg-orange-500 btn mt-5 w-[25vw] mx-auto' />
+                    <button type='button' className='bg-orange-500 btn mt-5 w-[25vw] mx-auto' onClick={handleSubmit} disabled={loading}>
+                        {loading ? "Loading..." : "Get Recommendation"}
+                    </button>
                 </form>
 
                 {crop && (
@@ -148,7 +155,7 @@ function Recommendation() {
                             <Image src={`/${crop}.jpg`} className='border border-white' width='300' height='300' alt='Image of the crop' />
 
                             <Link href={`/crop/${crop}`}>
-                            <button className='bg-lime-300 text-black hover:scale-105 py-2 px-4 rounded-full w-40 text-lg bg-opacity-90'>Learn More</button>
+                                <button className='bg-lime-300 text-black hover:scale-105 py-2 px-4 rounded-full w-40 text-lg bg-opacity-90'>Learn More</button>
                             </Link>
 
                         </div>

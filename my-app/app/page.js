@@ -70,7 +70,7 @@ export default function Home() {
             <Image src="/recommendation.jpg" className="border-2 border-black rounded-3xl" width="400" height="400" alt="A close-up of rich, fertile soil with AI-based crop suggestions appearing as holographic projections." />
             <h3 className="text-lg font-semibold">🌾 Grow the Right Crop</h3>
             <p className="text-base">Our AI analyzes soil and weather to help you grow the most sustainable crops for your land to cultivate.</p>
-            <Link href="/recommendation">
+            <Link href="/recommend">
               <button className="btn bg-lime-500 w-60 mt-5">Get Recommendation</button>
             </Link>
           </div>
