@@ -40,8 +40,8 @@ function Navbar() {
             </li>
 
             <li>
-              <Link href='/#whether' className='hover:text-gray-300'>
-                Whether
+              <Link href='/#weather' className='hover:text-gray-300'>
+                Weather
               </Link>
             </li>
           </ul>

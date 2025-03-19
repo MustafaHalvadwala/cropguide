@@ -1,109 +1,128 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState, use } from 'react'
 import Image from 'next/image'
+import { RadarChart, PolarGrid, PolarAngleAxis, Radar, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 
-function Page() {
+
+function Page({ params }) {
+
+  const [crop, setCrop] = useState("")
+
+  const { slug } = use(params)
+
+  console.log(slug)
+
+  useEffect(() => {
+
+    const myHeaders = new Headers()
+    myHeaders.append("Content-Type", "application/json")
+
+    const raw = JSON.stringify({
+      slug: slug
+    })
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow"
+    }
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/crop", requestOptions)
+        const result = await response.json()
+        setCrop(result)
+      }
+      catch (error) {
+        console.log(error)
+      }
+    }
+
+    fetchData()
+  }, [])
+
+  useEffect(() => {
+    console.log(crop)
+  }, [crop])
+
+  const data = [
+    { label: "N (Nitrogen)", min: crop.min_N, max: crop.max_N, mean: crop.mean_N, range: crop.range_N },
+    { label: "P (Phosphorus)", min: crop.min_P, max: crop.max_P, mean: crop.mean_P, range: crop.range_P },
+    { label: "K (Potassium)", min: crop.min_K, max: crop.max_K, mean: crop.mean_K, range: crop.range_K },
+    { label: "🌡 Temperature", min: crop.min_Temp, max: crop.max_Temp, mean: crop.mean_Temp, range: crop.range_Temp },
+    { label: "💧 Humidity", min: crop.min_RH, max: crop.max_RH, mean: crop.mean_RH, range: crop.range_RH },
+    { label: "🧪 Soil pH", min: crop.min_ph, max: crop.max_ph, mean: crop.mean_ph, range: crop.range_ph },
+    { label: "🌧 Rainfall", min: crop.min_Rf, max: crop.max_Rf, mean: crop.mean_Rf, range: crop.range_Rf },
+  ]
+
   return (
     <>
       <div className='bg-amber-100 grid grid-flow-col max-w-[100vw] min-h-screen'>
 
         <div className='flex justify-center items-center min-w-[50vw]'>
-          <Image src='/apple.jpg' width='500' height='500' alt='Tomato' />
+          <Image src={`/${crop.name}.png`} width='500' height='500' alt={`${crop.imagetag}`} />
         </div>
-        <div className='flex flex-col justify-center pr-20 gap-10 '>
-          <p className='text-xl'>Organically Grown, Freshly Harvested
-          </p>
-          <h2 className='text-7xl'>
-            Savor the Bursting Flavor of Our Sun-Kissed Tomatoes
-          </h2>
-          <p className='text-2xl'>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga hic impedit dolorum, provident eos assumenda molestias ab quisquam neque non laborum totam ad ut voluptates sequi doloremque, deserunt cupiditate libero.
-          </p>
 
+        <div className='flex flex-col justify-center gap-5 pr-20 min-w-[50vw] text-balance'>
+          <p className='text-sm uppercase'>{crop.tagline}</p>
+          <h2 className='text-5xl font-bold'>{crop.title}</h2>
+          <p className='text-lg'>{crop.paragraph}</p>
         </div>
+
       </div>
 
-      <div className='bg-orange-300 flex flex-col max-w-[100vw] min-h-screen text-center gap-10 p-10'>
+      <div className='bg-orange-300 flex flex-col max-w-[100vw] min-h-screen justify-center items-center'>
 
-        <p className="text-xl font-semibold text-gray-700 tracking-widest uppercase">
-          Gallery
-        </p>
+        <p className='text-sm uppercase'> Text </p>
 
-        <h2 className="text-5xl font-bold text-gray-900">
-          The Visual Journey of Our <br /> Tomatoes
-        </h2>
+        <h2 className='text-5xl font-bold'> Conditions requird by {crop.name} </h2>
 
-        <div className="flex flex-wrap justify-center gap-5">
+        <div className='grid grid-flow-col gap-10 p-5'>
 
-          <div className="w-64 h-80 rounded-xl overflow-hidden shadow-lg">
-            <Image
-              src="/ph.jpg" // Replace with actual image
-              alt="Tomatoes on plant"
-              width='100'
-              height='100'
-              className="w-full h-full object-cover"
-              
-            />
-          </div>
-          <div className="w-64 h-80 rounded-xl overflow-hidden shadow-lg">
-            <Image
-              src="/images/tomatoes2.jpg" // Replace with actual image
-              alt="Tomatoes in bowl"
-              width='500'
-              height='500'
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="w-64 h-80 rounded-xl overflow-hidden shadow-lg">
-            <Image
-              src="/images/tomatoes3.jpg" // Replace with actual image
-              alt="Tomatoes dish"
-              width='300'
-              height='300'
-              className="w-full h-full object-cover"
-            />
+          <div className='min-w-[40vw] bg-white'>
+            <table className='w-full h-full border border-black'>
+              <thead>
+                <tr className='bg-gray-200'>
+                  <th className='border border-black'>Feature</th>
+                  <th className='border border-black'>Min</th>
+                  <th className='border border-black'>Max</th>
+                  <th className='border border-black'>Range</th>
+                  <th className='border border-black'>Mean</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((item, index) => (
+                  <tr key={index} className='text-center'>
+                    <td className='border border-black font-semibold'>{item.label}</td>
+                    <td className='border border-black'>{item.min}</td>
+                    <td className='border border-black'>{item.max}</td>
+                    <td className='border border-black'>{item.range}</td>
+                    <td className='border border-black'>{item.mean}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
 
-          <div className="w-64 h-80 rounded-xl overflow-hidden shadow-lg">
-            <Image
-              src="/images/tomatoes3.jpg" // Replace with actual image
-              alt="Tomatoes dish"
-              width='300'
-              height='300'
-              className="w-full h-full object-cover"
-            />
+          <div className='bg-amber-100 rounded-xl shadow-lg min-w-[50vw] flex justify-center items-center'>
+            <ResponsiveContainer width={500} height={500}>
+              <RadarChart outerRadius={150} data={data}>
+                <PolarGrid />
+                <PolarAngleAxis dataKey="label" />
+                <Tooltip />
+                <Legend />
+
+                {/* Minimum Range Radar */}
+                <Radar name="Min" dataKey="min" stroke="#ff4d4d" fill="#ff4d4d" fillOpacity={0.6} />
+
+                {/* Maximum Range Radar */}
+                <Radar name="Max" dataKey="max" stroke="#4d79ff" fill="#4d79ff" fillOpacity={0.4} />
+              </RadarChart>
+            </ResponsiveContainer>
           </div>
 
-          <div className="w-64 h-80 rounded-xl overflow-hidden shadow-lg">
-            <Image
-              src="/images/tomatoes3.jpg" // Replace with actual image
-              alt="Tomatoes dish"
-              width='300'
-              height='300'
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          <div className="w-64 h-80 rounded-xl overflow-hidden shadow-lg">
-            <Image
-              src="/images/tomatoes3.jpg" // Replace with actual image
-              alt="Tomatoes dish"
-              width='300'
-              height='300'
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          <div className="w-64 h-80 rounded-xl overflow-hidden shadow-lg">
-            <Image
-              src="/images/tomatoes3.jpg" // Replace with actual image
-              alt="Tomatoes dish"
-              width='300'
-              height='300'
-              className="w-full h-full object-cover"
-            />
-          </div>
         </div>
-
 
       </div>
 

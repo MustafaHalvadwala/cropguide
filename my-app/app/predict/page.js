@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react'
+import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 function Predict() {
 
@@ -87,6 +88,12 @@ function Predict() {
     console.log("Updated price:", price) // Debugging
   }, [price])
 
+  const data = [
+    { type: "Min Price", price: price.Min_x0020_Price },
+    { type: "Max Price", price: price.Max_x0020_Price },
+    { type: "Modal Price", price: price.Modal_x0020_Price }
+  ]
+
   return (
     <>
       <div className='bg-lime-300 min-h-screen grid grid-flow-col max-h-screen'>
@@ -126,8 +133,8 @@ function Predict() {
           {/* Commodity Dropdown */}
           <select value={commodity} onChange={(e) => setCommodity(e.target.value)}>
             <option value=''>Select Commodity</option>
-            {options.commodities.map((c) => (
-              <option key={c} value={c}>{c}</option>
+            {options.commodities.filter((c) => c.market == market).map((c, i) => (
+              <option key={i} value={c.commodity}> {c.commodity} </option>
             ))}
           </select>
 
@@ -148,7 +155,7 @@ function Predict() {
         {price && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
 
-            <div className="bg-emerald-950 bg-opacity-90 text-white rounded-3xl p-10 flex flex-col gap-10 justify-center items-center relative w-[40vw]">
+            <div className="bg-emerald-950 bg-opacity-90 text-white rounded-3xl p-10 flex flex-col gap-10 justify-center items-center relative w-[50vw]">
 
               {/* Close Button */}
               <button onClick={() => setPrice("")} className="absolute top-10 right-10 text-white text-3xl">
@@ -158,12 +165,22 @@ function Predict() {
               {/* Title */}
               <h2 className="text-5xl font-semibold uppercase">Crop Price</h2>
 
-              <p>Min Price: {price.Min_x0020_Price}</p>
+              {/* <p>Min Price: {price.Min_x0020_Price}</p>
               <p>Max Price: {price.Max_x0020_Price}</p>
-              <p>Modal Price: {price.Modal_x0020_Price}</p>
+              <p>Modal Price: {price.Modal_x0020_Price}</p> */}
 
+              <ResponsiveContainer width={700} height={500}>
+                <BarChart data={data} >
+                  <CartesianGrid strokeDasharray="5 5" />
+                  <XAxis dataKey="type" tick={{ fontSize: "15" }} />
+                  <YAxis label={{ value: "₹ / Quintal", angle: "-90", position: "insideLeft"}} />
+                  <Tooltip />
+                  <Bar dataKey="price" fill="#4CAF50" barSize="50" />
+                </BarChart>
+              </ResponsiveContainer>
 
             </div>
+
           </div>
         )}
 

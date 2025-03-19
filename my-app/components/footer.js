@@ -13,7 +13,7 @@ function Footer() {
           <div>
             <h3 className='text-xl font-semibold'>Navigate</h3>
             <ul className='flex flex-col gap-4 my-4 text-sm'>
-              {['Home', 'Our Purpose', 'Our Features', 'Benefits', 'Whether'].map(
+              {['Home', 'Our Purpose', 'Our Features', 'Benefits', 'Weather'].map(
                 (item) => (
                   <li key={item}>
                     <Link href='#' className='hover:text-white text-gray-500'>{item}</Link>

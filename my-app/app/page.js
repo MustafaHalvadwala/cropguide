@@ -98,10 +98,42 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-orange-300 min-h-screen max-w-[100vw] py-20" id="benefits">
+      <div className="bg-orange-300 grid grid-flow-col gap-10 justify-center items-center min-h-screen max-w-[100vw] py-20" id="benefits">
+
+        {/* Left - Text Content */}
+        <div className="flex flex-col justify-center items-center p-10 shadow-lg rounded-3xl border border-black">
+          <h3 className="text-sm uppercase text-center">
+            CropGuide
+          </h3>
+          <h2 className="text-3xl font-bold text-center my-5">
+            How CropGuide Empowers Farmers
+          </h2>
+          <div className="grid grid-cols-3 gap-20 mt-5">
+            {[
+              { text: "Smart Crop Selection", icon: "🌾" },
+              { text: "AI-Powered Insights", icon: "🤖" },
+              { text: "Weather-Based Advice", icon: "☀️" },
+              { text: "Market Price Trends", icon: "📊" },
+              { text: "Soil Health Analysis", icon: "🌱" },
+              { text: "Community Support", icon: "🤝" },
+            ].map((benefit, index) => (
+              <div key={index} className="flex flex-col items-center justify-center">
+                <span className="bg-amber-100 rounded-full flex items-center justify-center p-5 text-3xl">{benefit.icon}</span>
+                <p className="text-lg font-medium mt-2">{benefit.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Right - Image Section */}
+        <div className="">
+          <Image src="/images/cropguide-farmers.jpg" alt="CropGuide Farming Assistance" width="500" height="500" className="rounded-2xl" />
+        </div>
+
       </div>
 
-      <div className="bg-amber-100 min-h-screen max-w-[100vw] py-20" id="whether">
+      <div className="bg-amber-100 min-h-screen max-w-[100vw] py-20" id="weather">
+     
       </div>
 
     </main>

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-function Recommendation() {
+function Recommend() {
 
     const [formData, setFormData] = useState({
         nitrogen: "",
@@ -169,4 +169,4 @@ function Recommendation() {
     )
 }
 
-export default Recommendation
+export default Recommend
