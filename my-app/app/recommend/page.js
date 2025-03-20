@@ -80,8 +80,8 @@ function Recommend() {
 
             <div className='min-h-screen bg-lime-300 grid grid-flow-col max-h-screen'>
 
-                <div className='min-w-[40vw]'>
-
+                <div className='flex justify-center items-center min-w-[40vw]'>
+                    <Image src='/farmer3.jpg' width='500' height='500' alt='A side-by-side comparison of two farm fields.' />
                 </div>
 
                 <form action='' className='flex flex-col gap-5 min-w-[60vw] justify-center p-20 mt-10'>
@@ -152,7 +152,7 @@ function Recommend() {
                             <p>The recommended Crop is {crop}</p>
 
                             {/* Image */}
-                            <Image src={`/${crop}.jpg`} className='border border-white' width='300' height='300' alt='Image of the crop' />
+                            <Image src={`/crop/${crop}.png`} className='' width='300' height='300' alt='Image of the crop' />
 
                             <Link href={`/crop/${crop}`}>
                                 <button className='bg-lime-300 text-black hover:scale-105 py-2 px-4 rounded-full w-40 text-lg bg-opacity-90'>Learn More</button>

@@ -61,7 +61,7 @@ function Page({ params }) {
       <div className='bg-amber-100 grid grid-flow-col max-w-[100vw] min-h-screen'>
 
         <div className='flex justify-center items-center min-w-[50vw]'>
-          <Image src={`/${crop.name}.png`} width='500' height='500' alt={`${crop.imagetag}`} />
+          <Image src={`/crop/${crop.name}.png`} width='500' height='500' alt={`${crop.imagetag}`} />
         </div>
 
         <div className='flex flex-col justify-center gap-5 pr-20 min-w-[50vw] text-balance'>

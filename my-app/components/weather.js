@@ -29,7 +29,7 @@ export default function Weather() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen">
       <div className="bg-white p-6 rounded-2xl shadow-lg max-w-sm w-full">
         <h2 className="text-xl font-semibold text-gray-700 text-center mb-4">
           Weather App

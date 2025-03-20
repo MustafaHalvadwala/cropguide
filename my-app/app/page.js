@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Weather from "@/components/weather";
 
 export default function Home() {
 
@@ -127,13 +128,13 @@ export default function Home() {
 
         {/* Right - Image Section */}
         <div className="">
-          <Image src="/images/cropguide-farmers.jpg" alt="CropGuide Farming Assistance" width="500" height="500" className="rounded-2xl" />
+          <Image src="/farmer2.jpg" alt="A futuristic blend of AI and agriculture." width="500" height="500" className="rounded-2xl" />
         </div>
 
       </div>
 
       <div className="bg-amber-100 min-h-screen max-w-[100vw] py-20" id="weather">
-     
+            <Weather/>
       </div>
 
     </main>
