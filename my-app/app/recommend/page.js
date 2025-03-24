@@ -81,7 +81,7 @@ function Recommend() {
             <div className='min-h-screen bg-lime-300 grid grid-flow-col max-h-screen'>
 
                 <div className='flex justify-center items-center min-w-[40vw]'>
-                    <Image src='/farmer3.jpg' width='500' height='500' alt='A side-by-side comparison of two farm fields.' />
+                    <Image src='/farmer3.jpg' width='500' height='500' alt='A futuristic blend of AI and agriculture.' />
                 </div>
 
                 <form action='' className='flex flex-col gap-5 min-w-[60vw] justify-center p-20 mt-10'>

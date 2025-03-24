@@ -10,9 +10,8 @@ export async function POST(request) {
     const collection = db.collection("prices")
 
     const price = await collection.findOne({ State: state, District: district, Market: market, Commodity: commodity, Variety: variety }, { projection: { _id: 0, Min_x0020_Price: 1, Max_x0020_Price: 1, Modal_x0020_Price: 1 } })
-
     console.log(price)
 
-    return Response.json(price)
+    return Response.json({price})
 
 }

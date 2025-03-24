@@ -29,8 +29,12 @@ export default function Home() {
           <p className="text-base font-semibold">✅Boost Yield &nbsp; &nbsp; &nbsp; 📈Optimize Resources &nbsp; &nbsp; &nbsp; 🌍Sustainable & Profitable Farming</p>
 
           <div className="flex gap-10">
-            <button className="border border-black rounded-xl bg-lime-500 px-4 py-2 hover:-translate-y-1 hover:shadow-xl w-40">Sign Up</button>
-            <button className="btn bg-orange-500 w-40">Log In</button>
+            <Link href='/crop'>
+            <button className="border border-black rounded-xl bg-lime-500 px-4 py-2 hover:-translate-y-1 hover:shadow-xl w-40">Crops</button>
+            </Link>
+            <Link href='/soil'>
+            <button className="btn bg-orange-500 w-40">Soils</button>
+            </Link>
           </div>
         </div>
 
@@ -88,9 +92,9 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center gap-2">
             <Image src="/insight.jpg" className="border-2 border-black rounded-3xl" width="400" height="400" alt="A magnified view of soil structure revealing its detailed composition. The image shows cross-sections of soil layers with visible roots, organic matter, and moisture." />
             <h3 className="text-lg font-semibold">📢 Stay Ahead with Smart Insights</h3>
-            <p className="text-base">Understand soil conditions, climate impact, and best farming practices to boost your yield  and sustainability.</p>
-            <Link href="crop">
-              <button className="btn bg-lime-500 w-60 mt-5">Explore Insights</button>
+            <p className="text-base">Understand soil type, market demand, and best farming practice to boost your yield  and sustainability.</p>
+            <Link href="/detect">
+              <button className="btn bg-lime-500 w-60 mt-5">Detect Soil Type</button>
             </Link>
           </div>
 
@@ -104,10 +108,10 @@ export default function Home() {
         {/* Left - Text Content */}
         <div className="flex flex-col justify-center items-center p-10 shadow-lg rounded-3xl border border-black">
           <h3 className="text-sm uppercase text-center">
-            CropGuide
+            Crop Guide
           </h3>
           <h2 className="text-3xl font-bold text-center my-5">
-            How CropGuide Empowers Farmers
+            How Crop Guide Empowers Farmers
           </h2>
           <div className="grid grid-cols-3 gap-20 mt-5">
             {[
@@ -128,7 +132,7 @@ export default function Home() {
 
         {/* Right - Image Section */}
         <div className="">
-          <Image src="/farmer2.jpg" alt="A futuristic blend of AI and agriculture." width="500" height="500" className="rounded-2xl" />
+          <Image src="/farmer2.jpg" alt="A side-by-side comparison of two farm fields." width="500" height="500" className="rounded-2xl" />
         </div>
 
       </div>

@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import Image from 'next/image';
 
 function Predict() {
 
@@ -77,7 +78,7 @@ function Predict() {
           alert("⚠️ Price is not available in the database.");
         }
         else {
-          setPrice(result)
+          setPrice(result.price)
         }
         setLoading(false)
       })
@@ -98,7 +99,9 @@ function Predict() {
     <>
       <div className='bg-lime-300 min-h-screen grid grid-flow-col max-h-screen'>
 
-        <div></div>
+        <div className='flex justify-center items-center min-w-[40vw]'>
+          <Image src='/farmer3.jpg' width='500' height='500' alt='A futuristic blend of AI and agriculture.' />
+        </div>
 
         <form action='' onSubmit={handleSubmit} className='flex flex-col gap-5 min-w-[60vw] justify-center p-20 mt-10'>
 

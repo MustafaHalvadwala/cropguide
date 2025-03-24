@@ -3,7 +3,7 @@ import * as tf from '@tensorflow/tfjs'
 
 export async function POST(request) {
 
-    const model = await tf.loadLayersModel('http://localhost:3000/models/model.json')
+    const model = await tf.loadLayersModel('http://localhost:3000/models/crop/model.json')
 
     const inputData = await request.json()
 

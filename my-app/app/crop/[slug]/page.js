@@ -35,7 +35,7 @@ function Page({ params }) {
         setCrop(result)
       }
       catch (error) {
-        console.log(error)
+        console.error(error)
       }
     }
 
@@ -74,7 +74,7 @@ function Page({ params }) {
 
       <div className='bg-orange-300 flex flex-col max-w-[100vw] min-h-screen justify-center items-center'>
 
-        <p className='text-sm uppercase'> Text </p>
+        <p className='text-sm uppercase m-2'> AI Insights </p>
 
         <h2 className='text-5xl font-bold'> Conditions requird by {crop.name} </h2>
 
@@ -127,37 +127,6 @@ function Page({ params }) {
       </div>
 
       <div className='bg-amber-100 grid grid-flow-col max-w-[100vw] min-h-screen'>
-        <div className="py-16 px-4 sm:px-10">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
-            {/* Card Section */}
-            <div className=" p-6 sm:p-10 rounded-xl shadow-lg border-4 border-grey-950">
-              <h3 className="text-lg font-semibold text-gray-600 uppercase">
-                Key Nutrients
-              </h3>
-              <h2 className="text-3xl font-bold text-green-900 mt-2">
-                Unlock the Healthful Richness of Tomatoes
-              </h2>
-              <ul className="mt-4 text-gray-700 space-y-2 text-lg">
-                <li><strong>Vitamin C:</strong> Essential for skin health and immunity.</li>
-                <li><strong>Folate (Vitamin B9):</strong> Important for tissue growth.</li>
-                <li><strong>Lycopene:</strong> Reduces risk of heart disease and cancer.</li>
-                <li><strong>Vitamin K:</strong> Crucial for blood clotting.</li>
-                <li><strong>Vitamin E:</strong> Helps maintain healthy skin and eyes.</li>
-              </ul>
-            </div>
-
-            {/* Image Box */}
-            <div className="rounded-xl overflow-hidden shadow-lg">
-              <Image
-                src="/images/tomato-greenhouse.jpg" // Update with your actual image path
-                alt="Tomato Greenhouse"
-                width={600}
-                height={400}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
       </div>
     </>
   )
