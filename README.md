@@ -1,4 +1,4 @@
-# Crop Guide – AI-Powered Smart Crop Recommendation System
+# Crop Guide – AI Powered Smart Crop Recommendation System
 
 ## 🌾 Overview
 Crop Guide is an **AI-driven, IoT-enabled** smart agriculture solution designed to help farmers make **data-backed, profitable** decisions. By integrating **soil analysis, real-time weather conditions, and market demand**, Crop Guide provides **accurate crop recommendations** to maximize yield and profitability.
@@ -61,8 +61,8 @@ This project leverages **machine learning, deep learning, and IoT-based automati
 
 ### **1. Clone the Repository**
 ```bash
-git clone https://github.com/your-username/crop-guide.git
-cd crop-guide
+git clone https://github.com/MustafaHalvadwala/cropguide
+cd my-app
 ```
 
 ### **2. Install Dependencies**
@@ -75,14 +75,7 @@ npm install
 npm run dev
 ```
 
-### **4. Run the Machine Learning Models**
-Ensure you have **Python installed** and the required ML libraries. Run:
-```bash
-python crop_model.py
-python soil_model.py
-```
-
-### **5. Set Up OpenWeather API Key**
+### **4. Set Up OpenWeather API Key**
 - Get your **API key** from [OpenWeather](https://openweathermap.org/api).
 - Store it in an **.env file**:
 ```bash
