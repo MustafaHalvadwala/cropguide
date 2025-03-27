@@ -1,6 +1,6 @@
 # Crop Guide – AI Powered Smart Crop Recommendation System
 
-## 🌾 Overview
+## 📝 Overview
 Crop Guide is an **AI-driven, IoT-enabled** smart agriculture solution designed to help farmers make **data-backed, profitable** decisions. By integrating **soil analysis, real-time weather conditions, and market demand**, Crop Guide provides **accurate crop recommendations** to maximize yield and profitability.
 
 This project leverages **machine learning, deep learning, and IoT-based automation** to bring precision agriculture to the next level.
@@ -9,34 +9,40 @@ This project leverages **machine learning, deep learning, and IoT-based automati
 
 ## 🚀 Features
 
-### ✅ **1. AI-Based Crop Recommendation**
+### 🌾 **1. AI-Based Crop Recommendation**
 - Predicts the **best crop** based on key soil properties:
   - **NPK values (Nitrogen, Phosphorus, Potassium)**
   - **pH level**
   - **Rainfall, humidity, and temperature**
 - Utilizes **machine learning algorithms** to ensure accurate crop selection for optimal yield.
 
-### ✅ **2. Deep Learning-Powered Soil Type Detection**
+### 🌱 **2. Deep Learning-Powered Soil Type Detection**
 - Uses a **deep learning model** to classify **soil types** based on image analysis.
 - Enhances precision by aligning crop recommendations with **specific soil properties**.
 
-### ✅ **3. Market-Driven Crop Optimization**
+### 📊 **3. Market-Driven Crop Optimization**
 - Integrates **real-time market price tracking** to recommend crops that are both **agronomically suitable and financially profitable**.
 - Ensures farmers grow **high-demand, high-profit crops** by analyzing **current market trends**.
 
-### ✅ **4. Weather-Integrated Smart Suggestions**
+### 🌦️ **4. Weather-Integrated Smart Suggestions**
 - **OpenWeather API** fetches **real-time weather data**, considering:
   - **Temperature**
   - **Rainfall patterns**
   - **Humidity trends**
 - Adapts recommendations based on **climatic conditions** to improve accuracy.
 
-### ✅ **5. IoT-Enabled Smart Agriculture (Future Scope)**
+### 📡 **5. IoT-Enabled Smart Agriculture (Future Scope)**
 - **IoT sensors** will provide real-time detection of:
   - **Soil nutrition levels**
   - **Moisture content**
   - **Weather conditions**
 - **Automated data collection** will further enhance crop recommendation accuracy.
+
+---
+
+## 🎥 Demo Video
+
+https://drive.google.com/file/d/14yGZg5p-_VfSwt_54PXMrPQyzDpl8ICx/view?usp=drive_link
 
 ---
 
