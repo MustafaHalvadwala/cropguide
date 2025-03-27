@@ -78,7 +78,7 @@ function Predict() {
           alert("⚠️ Price is not available in the database.");
         }
         else {
-          setPrice(result.price)
+          setPrice(result)
         }
         setLoading(false)
       })

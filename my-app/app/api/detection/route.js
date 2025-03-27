@@ -7,9 +7,7 @@ export async function POST(request) {
     const model = await tf.loadLayersModel('http://localhost:3000/models/soil/model.json')
 
 
-    const { imageTensor, state, district, market } = await request.json()
-
-    console.log(state)
+    const { imageTensor } = await request.json()
 
     // Convert array data back to tensor
     let tensor = tf.tensor(imageTensor)
@@ -25,11 +23,6 @@ export async function POST(request) {
 
     console.log(detectedSoil)
 
-    const client = await clientPromise
-    const db = client.db("CropGuide")
-    const collection = db.collection("prices")
-
-    let cropPrices = [];
     const recommendedCrops = { 
         'black soil': ['Cotton','Sugarcane','Wheat','Jowar','Rice'],
         'red soil': ['Wheat','Pulses','Millets','Potatoes','Mangoes'],
@@ -37,22 +30,11 @@ export async function POST(request) {
         'clay soil': ['Lettuce','Spinach','Broccoli','Cabbage','Pumpkin']
     }
 
-
-    for (let crop of recommendedCrops[detectedSoil]) {
-        console.log(crop)
-        const priceData = await collection.findOne({ State: state, District: district, Market: market, Commodity: crop });
-
-        console.log(priceData)
-
-        cropPrices.push({
-            crop: priceData ? priceData.Commodity : crop, // Default to crop name if data is missing
-            price: priceData ? priceData.Modal_x0020_Price : "No data available",
-        });
-    }
+    const crops = recommendedCrops[detectedSoil]
 
     model.dispose()
-    console.log(cropPrices)
+    console.log(crops)
 
-    return Response.json({detectedSoil, cropPrices})
+    return Response.json({detectedSoil, crops})
 
 }

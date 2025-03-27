@@ -5,57 +5,11 @@ import Image from 'next/image'
 
 export default function ImageUpload() {
 
-    const [state, setState] = useState("")
-
-    const [district, setDistrict] = useState("")
-
-    const [market, setMarket] = useState("")
-
-    const [options, setOptions] = useState({
-        states: [],
-        districts: [],
-        markets: [],
-    })
-
     const [loading, setLoading] = useState(false)
-
-    useEffect(() => {
-        const myHeaders = new Headers()
-        myHeaders.append("Content-Type", "application/json")
-
-        const requestOptions = {
-            method: "POST",
-            headers: myHeaders,
-            redirect: "follow"
-        }
-
-        fetch("/api/input", requestOptions)
-            .then((response) => response.json())
-            .then((result) => {
-                setOptions(result)
-            })
-            .catch((error) => console.error(error))
-    }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         setLoading(true)
-
-        const myHeaders = new Headers()
-        myHeaders.append("Content-Type", "application/json")
-
-        const raw = JSON.stringify({
-            state: state,
-            district: district,
-            market: market
-        })
-
-        const requestOptions = {
-            method: "POST",
-            headers: myHeaders,
-            body: raw,
-            redirect: "follow"
-        }
 
         if (!image) return
 
@@ -78,7 +32,7 @@ export default function ImageUpload() {
             const response = await fetch("/api/detection", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ imageTensor: tensorData, state: state, district: district, market: market }),
+                body: JSON.stringify({ imageTensor: tensorData }),
             });
 
             const data = await response.json()
@@ -100,40 +54,13 @@ export default function ImageUpload() {
 
     }
 
+
     return (
         <>
             <div className='bg-lime-300 min-h-screen flex flex-col justify-center items-center gap-10'>
-                <form action='' onSubmit={handleSubmit} className='flex flex-col gap-5 min-w-[60vw] justify-center p-20 mt-10'>
+                <form action='' onSubmit={handleSubmit} className='flex flex-col gap-5 min-w-[60vw] justify-center items-center p-20 mt-10'>
 
-                    {/* State Dropdown */}
-                    <select value={state} onChange={(e) => setState(e.target.value)}>
-                        <option value=''>Select State</option>
-                        {options.states.map((s) => (
-                            <option key={s} value={s}>{s}</option>
-                        ))}
-                    </select>
-
-                    {/* District Dropdown (Filtered by State) */}
-                    <select value={district} onChange={(e) => setDistrict(e.target.value)}>
-                        <option value=''>Select District</option>
-                        {options.districts
-                            .filter((d) => d.state == state)
-                            .map((d, i) => (
-                                <option key={i} value={d.district}>{d.district}</option>
-                            ))}
-                    </select>
-
-                    {/* Market Dropdown (Filtered by District) */}
-                    <select value={market} onChange={(e) => setMarket(e.target.value)}>
-                        <option value=''>Select Market</option>
-                        {options.markets
-                            .filter((m) => m.district == district)
-                            .map((m, i) => (
-                                <option key={i} value={m.market}>{m.market}</option>
-                            ))}
-                    </select>
-
-                    <input type='file' onChange={handleImageUpload} accept='image/*' />
+                    <input type='file' onChange={handleImageUpload} accept='image/*' className='border border-black bg-white' />
                     {image && <>
                         <div className='flex flex-col gap-5'>
                             <Image src={image} alt='Uploaded' width={400} height={400} />
@@ -141,7 +68,7 @@ export default function ImageUpload() {
                     </>}
 
                     <button type='submit' className='btn bg-orange-500' disabled={loading}>
-                        {loading ? "Loading..." : "Get Recommendation"}
+                        {loading ? "Loading..." : "Detect Soil Type"}
                     </button>
 
                 </form>
@@ -149,7 +76,7 @@ export default function ImageUpload() {
                 {prediction && (
                     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
 
-                        <div className="bg-emerald-950 bg-opacity-90 text-white rounded-3xl p-10 flex flex-col gap-10 justify-center items-center relative w-[40vw]">
+                        <div className="bg-emerald-950 bg-opacity-90 text-white rounded-3xl p-10 flex flex-col gap-10 justify-center items-center relative w-[40vw] h-[50vh]">
 
                             {/* Close Button */}
                             <button onClick={() => setPrediction("")} className="absolute top-10 right-10 text-white text-3xl">
@@ -159,16 +86,18 @@ export default function ImageUpload() {
                             {/* Title */}
                             <h2 className="text-5xl font-semibold uppercase">{prediction.detectedSoil}</h2>
 
-                            <h3>The type of Soil is {prediction.detectedSoil}</h3>
+                            <h3>The type of Soil is <strong>{prediction.detectedSoil}</strong></h3>
 
-                            <p>The recommended Crop and its Prices are:</p>
-                            <ul>
-                                {prediction.cropPrices.map((crop, index) => (
-                                    <li key={index}>
-                                        <strong>{crop.crop}:</strong> {crop.price !== "No data available" ? `₹${crop.price} per quintal` : "No data available"}
-                                    </li>
-                                ))}
-                            </ul>
+                            <div className='text-center'>
+                                <p>The recommended Crops are:</p>
+                                <ul className='flex gap-5'>
+                                    {prediction.crops.map((crop, index) => (
+                                        <li key={index} className=''>
+                                            <strong>{crop}</strong>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
 
                         </div>
                     </div>
